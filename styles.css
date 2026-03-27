@@ -42,8 +42,8 @@ h3,
   backdrop-filter: blur(10px);
   background: rgb(255, 255, 255);
 }
-.hidden {
-  display: none;
+.card.hidden {
+  display: none !important;
 }
 .nav-container {
   max-width: 1200px;
@@ -482,8 +482,8 @@ h3,
   color: #888;
 }
 /* =========================================
-   📱 RESPONSIVE DESIGN
-========================================= */
+    📱 RESPONSIVE DESIGN
+    ========================================= */
 
 /* TABLET */
 @media (max-width: 1024px) {
@@ -501,8 +501,8 @@ h3,
 }
 
 /* =========================================
-   📱 MOBILE MENU (CLAVE)
-========================================= */
+    📱 MOBILE MENU (CLAVE)
+    ========================================= */
 @media (max-width: 768px) {
   .card p {
     display: none;
@@ -632,8 +632,8 @@ h3,
   }
 }
 /* =========================================
-   📱 SMALL MOBILE
-========================================= */
+    📱 SMALL MOBILE
+    ========================================= */
 @media (max-width: 480px) {
   .logo-kai img {
     width: 220px;
