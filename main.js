@@ -27,7 +27,7 @@ document.querySelectorAll(".nav-menu a").forEach((link) => {
 
 // ========== WHATSAPP CONFIGURACIÓN ==========
 // CAMBIAR ESTE NÚMERO POR EL REAL (código país + número, sin el símbolo +)
-const numeroWhatsapp = "51999999999"; // <- REEMPLAZAR AQUÍ
+const numeroWhatsapp = "51944274551"; // <- REEMPLAZAR AQUÍ
 
 // Botones "PEDIR" en cada plato
 const botonesPedir = document.querySelectorAll(".btn-card");
