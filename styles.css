@@ -1,0 +1,608 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  line-height: 1.5;
+  padding-top: 80px; /* espacio para navbar fija */
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap");
+
+h1,
+h2,
+h3,
+.logo-text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  background: #000000;
+  padding: 8px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 2px solid #e11d1d;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  background: rgb(255, 255, 255);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-kai-nav {
+  height: 100px;
+  width: auto;
+  transform: scale(1.4);
+  transform-origin: left center;
+  filter: contrast(1.1) brightness(0.95);
+}
+.nav-menu {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+}
+.nav-logo img {
+  display: block;
+}
+.nav-menu li a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: 1rem;
+}
+
+.nav-menu li a:hover {
+  color: #e11d1d;
+}
+
+.nav-whatsapp {
+  background: #25d366;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.nav-whatsapp:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+  background: #22c55e;
+}
+
+.nav-whatsapp span {
+  color: white;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* ========== HERO SECCIÓN ========== */
+/* ========== HERO CON IMAGEN DE FONDO ========== */
+/* ========== HERO CON IMAGEN DE FONDO ========== */
+.hero {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("chaufa2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Efecto parallax opcional */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 100px 20px;
+}
+
+/* Si no quieres el efecto parallax, quita la línea de background-attachment */
+/* Si no quieres el efecto parallax, quita la línea de background-attachment */
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.fusion-tag {
+  color: #e11d1d;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  display: inline-block;
+  background: rgba(225, 29, 29, 0.1);
+  padding: 4px 12px;
+  border-radius: 40px;
+}
+
+.logo-kai {
+  font-size: 5.5rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.logo-kai img {
+  width: 420px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgb(235, 231, 231);
+  transition: transform 0.3s ease;
+}
+.logo-kai img:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+.chifa-fusion {
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: #e11d1d;
+  margin-top: 8px;
+  display: inline-block;
+  padding-top: 12px;
+}
+
+.hero-line {
+  width: 80px;
+  height: 3px;
+  background: #e11d1d;
+  margin: 24px auto;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+
+.btn-cta {
+  background: transparent;
+  border: 2px solid #e11d1d;
+  color: #ffffff;
+  padding: 14px 38px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-cta:hover {
+  background: #e11d1d;
+  color: #ffffff;
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(225, 29, 29, 0.3);
+}
+
+/* ========== SOBRE NOSOTROS ========== */
+.about {
+  background: #ffffff;
+  color: #111111;
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.red-bar {
+  width: 70px;
+  height: 3px;
+  background: #e11d1d;
+  margin: 12px auto 32px auto;
+}
+
+.about-grid {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #2c2c2c;
+}
+
+.about-text p {
+  margin-bottom: 20px;
+}
+
+.about-img {
+  flex: 1;
+  text-align: center;
+}
+
+.about-img img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 16px;
+  border: 2px solid #e11d1d;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.img-placeholder {
+  background: #f0f0f0;
+  width: 100%;
+  max-width: 400px;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  border: 2px solid #e11d1d;
+  margin: 0 auto;
+  background-image: url("https://placehold.co/600x400/2c2c2c/e11d1d?text=Lomo+Saltado+Fusion");
+  background-size: cover;
+  background-position: center;
+}
+
+/* ========== PLATOS DESTACADOS ========== */
+.featured {
+  background: #0a0a0a;
+  padding: 80px 0;
+}
+
+.featured .section-title {
+  color: #ffffff;
+}
+
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+.card {
+  background: #121212;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 300px;
+  transition: transform 0.2s ease;
+  border-bottom: 4px solid #e11d1d;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card-img {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.card p {
+  color: #bbbbbb;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #e11d1d;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.btn-card {
+  background: transparent;
+  border: 1px solid #e11d1d;
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: 0.2s;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn-card:hover {
+  background: #e11d1d;
+  color: #fff;
+}
+
+/* ========== RESERVA / WHATSAPP ========== */
+.reservation {
+  background: #a54949;
+  padding: 70px 20px;
+  text-align: center;
+  color: white;
+}
+
+.reservation h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.reservation p {
+  font-size: 1.1rem;
+  margin-bottom: 28px;
+  opacity: 0.95;
+}
+
+.btn-whatsapp {
+  background: #ffffff;
+  color: #e11d1d;
+  padding: 14px 36px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 60px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: 0.25s;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+}
+
+.btn-whatsapp i {
+  font-size: 1.5rem;
+}
+
+.btn-whatsapp:hover {
+  background: #f0f0f0;
+  transform: scale(1.02);
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  background: #000000;
+  padding: 50px 0 30px;
+  border-top: 1px solid #2a2a2a;
+}
+
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 180px;
+}
+
+.footer-col h4 {
+  color: #e11d1d;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+
+.footer-col p,
+.footer-col a {
+  color: #cccccc;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.footer-col a:hover {
+  color: #e11d1d;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 18px;
+  font-size: 1.5rem;
+  color: #ccc;
+}
+
+.social-icons a:hover {
+  color: #e11d1d;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid #1f1f1f;
+  font-size: 0.8rem;
+  color: #888;
+}
+/* =========================================
+   📱 RESPONSIVE DESIGN
+========================================= */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .nav-menu {
+    gap: 20px;
+  }
+
+  .logo-kai img {
+    width: 320px;
+  }
+
+  .hero {
+    background-attachment: scroll; /* quita parallax en tablet */
+  }
+}
+
+/* =========================================
+   📱 MOBILE MENU (CLAVE)
+========================================= */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    color: #000;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+
+    /* oculto por defecto */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-menu li a {
+    display: block;
+    padding: 10px 0;
+    font-size: 1.1rem;
+  }
+
+  .nav-whatsapp {
+    width: 80%;
+    justify-content: center;
+  }
+
+  /* LOGO NAV */
+  .logo-kai-nav {
+    height: 50px;
+    transform: scale(1.2);
+  }
+
+  /* HERO */
+  .hero {
+    padding: 120px 20px 60px;
+  }
+
+  .logo-kai img {
+    width: 260px;
+  }
+
+  .chifa-fusion {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* CARDS */
+  .cards-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 350px;
+  }
+
+  /* FOOTER */
+  .footer-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* =========================================
+   📱 SMALL MOBILE
+========================================= */
+@media (max-width: 480px) {
+  .logo-kai img {
+    width: 220px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .reservation h2 {
+    font-size: 1.5rem;
+  }
+
+  .btn-whatsapp {
+    font-size: 1rem;
+    padding: 12px 24px;
+  }
+}
