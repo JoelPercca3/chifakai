@@ -74,3 +74,15 @@ allWhatsAppLinks.forEach((link) => {
     link.setAttribute("href", newHref);
   }
 });
+
+const verMasBtn = document.getElementById("verMasBtn");
+
+verMasBtn.addEventListener("click", () => {
+  const hiddenCards = document.querySelectorAll(".card.hidden");
+
+  hiddenCards.forEach((card) => {
+    card.classList.remove("hidden");
+  });
+
+  verMasBtn.style.display = "none"; // oculta el botón
+});

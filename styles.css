@@ -42,7 +42,9 @@ h3,
   backdrop-filter: blur(10px);
   background: rgb(255, 255, 255);
 }
-
+.hidden {
+  display: none;
+}
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -263,8 +265,8 @@ h3,
 }
 
 .about-img img {
-  width: 100%;
-  max-width: 400px;
+  width: 700px;
+  height: 400px;
   border-radius: 16px;
   border: 2px solid #e11d1d;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
@@ -288,6 +290,9 @@ h3,
 }
 
 /* ========== PLATOS DESTACADOS ========== */
+.featured .container {
+  max-width: 1400px;
+}
 .featured {
   background: #0a0a0a;
   padding: 80px 0;
@@ -300,7 +305,7 @@ h3,
 .cards-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
   justify-content: center;
   margin-top: 48px;
 }
@@ -309,7 +314,6 @@ h3,
   background: #121212;
   border-radius: 20px;
   overflow: hidden;
-  width: 300px;
   transition: transform 0.2s ease;
   border-bottom: 4px solid #e11d1d;
 }
@@ -456,6 +460,14 @@ h3,
   font-size: 1.5rem;
   color: #ccc;
 }
+.card {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.card:active {
+  transform: scale(0.98);
+}
 
 .social-icons a:hover {
   color: #e11d1d;
@@ -492,11 +504,17 @@ h3,
    📱 MOBILE MENU (CLAVE)
 ========================================= */
 @media (max-width: 768px) {
+  .card p {
+    display: none;
+  }
   .menu-icon {
     display: block;
     color: #000;
   }
-
+  .about-img img {
+    width: 300px;
+    height: 300px;
+  }
   .nav-menu {
     position: absolute;
     top: 70px;
@@ -567,24 +585,52 @@ h3,
     text-align: center;
   }
 
-  /* CARDS */
+  /* CARDS estilo lista */
   .cards-grid {
+    display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 16px;
   }
 
   .card {
-    width: 90%;
-    max-width: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
   }
 
-  /* FOOTER */
-  .footer-grid {
-    flex-direction: column;
-    text-align: center;
+  /* imagen a la izquierda */
+  .card-img {
+    width: 120px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    margin: 10px;
+  }
+
+  /* contenido a la derecha */
+  .card-content {
+    padding: 10px;
+    text-align: left;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .card p {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+
+  .price {
+    font-size: 1rem;
   }
 }
-
 /* =========================================
    📱 SMALL MOBILE
 ========================================= */
