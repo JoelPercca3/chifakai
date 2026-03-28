@@ -86,3 +86,26 @@ verMasBtn.addEventListener("click", () => {
 
   verMasBtn.style.display = "none"; // oculta el botón
 });
+// ========== VER CARTA COMPLETA ==========
+const menuCompleto = document.getElementById("menu-completo");
+
+// Ocultar la carta completa por defecto
+if (menuCompleto) {
+  menuCompleto.style.display = "none";
+}
+
+// Reasignar el botón verMasBtn para mostrar la carta completa
+if (verMasBtn && menuCompleto) {
+  verMasBtn.addEventListener("click", () => {
+    // Mostrar carta completa
+    menuCompleto.style.display = "block";
+
+    // Scroll suave hacia ella
+    setTimeout(() => {
+      menuCompleto.scrollIntoView({ behavior: "smooth" });
+    }, 50);
+
+    // Ocultar el botón
+    verMasBtn.style.display = "none";
+  });
+}

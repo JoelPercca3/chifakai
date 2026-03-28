@@ -271,6 +271,7 @@ h3,
   border: 2px solid #e11d1d;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
   object-fit: cover;
+  margin-left: 20px;
 }
 
 .img-placeholder {
@@ -650,5 +651,94 @@ h3,
   .btn-whatsapp {
     font-size: 1rem;
     padding: 12px 24px;
+  }
+}
+/* ===== CARTA COMPLETA - SIN ESPACIOS LATERALES ===== */
+#menu-completo {
+  background: #0a0a0a;
+  padding: 0 0 80px;
+}
+
+#menu-completo .container {
+  max-width: 100%;
+  padding: 0 16px;
+}
+
+.menu-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+  width: 100%;
+}
+
+.combos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  #menu-completo .container {
+    padding: 0 10px;
+  }
+
+  .menu-items-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .combos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .combos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ===== BANNERS DE CATEGORÍA ===== */
+.category-banner {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.category-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: brightness(0.7);
+  transition:
+    transform 0.4s ease,
+    filter 0.3s ease;
+}
+
+.category-banner:hover img {
+  transform: scale(1.04);
+  filter: brightness(0.9);
+}
+
+.category-banner-label {
+  position: absolute;
+  bottom: 14px;
+  left: 20px;
+  color: #fff;
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.8;
+  font-family: "Georgia", serif;
+}
+
+@media (max-width: 768px) {
+  .category-banner {
+    height: 140px;
+    border-radius: 8px;
   }
 }

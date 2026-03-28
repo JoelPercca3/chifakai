@@ -8,11 +8,221 @@
     />
     <title>Kai | Chifa Fusión</title>
     <link rel="stylesheet" href="styles.css" />
-    <!-- Font Awesome 6 -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <style>
+      /* ===== MENU SECTION STYLES ===== */
+      .menu-section {
+        padding: 60px 0 20px;
+        background: #0a0a0a;
+      }
+
+      /* Sobrescribe el .container global solo dentro del menú */
+      #menu-completo {
+        background: #0a0a0a;
+        padding: 0 0 80px;
+      }
+      #menu-completo > .container {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 24px;
+        box-sizing: border-box;
+      }
+
+      .menu-category {
+        margin-bottom: 60px;
+      }
+      .category-header {
+        display: inline-block;
+        background: linear-gradient(90deg, #c8a84b, #f0d060, #c8a84b);
+        color: #1a0000;
+        font-family: "Georgia", serif;
+        font-size: 1.2rem;
+        font-weight: 900;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        padding: 10px 28px;
+        clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+        margin-bottom: 8px;
+      }
+      .category-note {
+        font-size: 0.78rem;
+        color: #c8a84b;
+        letter-spacing: 1px;
+        margin-bottom: 24px;
+        font-style: italic;
+      }
+      .menu-items-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 10px;
+        width: 100%;
+      }
+      .menu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(200, 168, 75, 0.15);
+        border-left: 3px solid #c8210a;
+        padding: 11px 14px;
+        border-radius: 0 4px 4px 0;
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+        min-width: 0;
+      }
+      .menu-item:hover {
+        background: rgba(200, 168, 75, 0.07);
+        border-color: rgba(200, 168, 75, 0.4);
+      }
+      .item-name {
+        color: #f0e8d0;
+        font-size: 0.9rem;
+        font-weight: 500;
+        flex: 1;
+        min-width: 0;
+        word-break: break-word;
+      }
+      .item-price {
+        color: #c8a84b;
+        font-weight: 800;
+        font-size: 0.92rem;
+        white-space: nowrap;
+        margin-left: 10px;
+        background: rgba(200, 33, 10, 0.15);
+        padding: 3px 8px;
+        border-radius: 3px;
+        flex-shrink: 0;
+      }
+      /* COMBOS special grid */
+      .combos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 12px;
+        width: 100%;
+      }
+      .combo-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(200, 168, 75, 0.25);
+        border-radius: 6px;
+        padding: 14px;
+        text-align: center;
+        transition: background 0.2s;
+      }
+      .combo-card:hover {
+        background: rgba(200, 168, 75, 0.08);
+      }
+      .combo-num {
+        display: inline-block;
+        background: linear-gradient(90deg, #c8a84b, #f0d060);
+        color: #1a0000;
+        font-weight: 900;
+        font-size: 0.72rem;
+        letter-spacing: 2px;
+        padding: 3px 10px;
+        border-radius: 3px;
+        margin-bottom: 8px;
+      }
+      .combo-desc {
+        color: #d0c8b0;
+        font-size: 0.82rem;
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
+      .combo-price {
+        color: #c8a84b;
+        font-weight: 900;
+        font-size: 1.05rem;
+        border-top: 1px solid rgba(200, 168, 75, 0.2);
+        padding-top: 8px;
+      }
+      .menu-page-title {
+        text-align: center;
+        padding: 60px 0 40px;
+        border-bottom: 1px solid rgba(200, 168, 75, 0.2);
+        margin-bottom: 50px;
+      }
+      .menu-page-title h2 {
+        color: #fff;
+        font-size: 2.2rem;
+        letter-spacing: 6px;
+        font-family: "Georgia", serif;
+        margin-bottom: 8px;
+      }
+      .menu-page-title .red-bar {
+        width: 60px;
+        height: 3px;
+        background: #c8210a;
+        margin: 0 auto;
+      }
+
+      /* ===== CATEGORY BANNER ===== */
+      .category-banner {
+        width: 100%;
+        height: 180px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        position: relative;
+      }
+      .category-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        filter: brightness(0.75);
+        transition:
+          transform 0.4s ease,
+          filter 0.3s ease;
+      }
+      .category-banner:hover img {
+        transform: scale(1.04);
+        filter: brightness(0.9);
+      }
+      .category-banner-label {
+        position: absolute;
+        bottom: 14px;
+        left: 20px;
+        color: #fff;
+        font-size: 0.78rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        opacity: 0.75;
+        font-family: "Georgia", serif;
+      }
+
+      /* ===== RESPONSIVE MENU ===== */
+      @media (max-width: 768px) {
+        #menu-completo > .container {
+          padding: 0 12px;
+        }
+        .menu-items-grid {
+          grid-template-columns: 1fr;
+        }
+        .combos-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .category-header {
+          font-size: 1rem;
+          padding: 8px 20px;
+          letter-spacing: 2px;
+        }
+        .menu-page-title h2 {
+          font-size: 1.6rem;
+          letter-spacing: 3px;
+        }
+      }
+      @media (max-width: 400px) {
+        .combos-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- NAVBAR FIJA -->
@@ -55,7 +265,7 @@
           sabor vibrante del Perú. Sabores únicos, ingredientes frescos y pasión
           por la cocina.
         </p>
-        <a href="#menu" class="btn-cta">VER MENÚ</a>
+        <a href="#menu-completo" class="btn-cta">VER MENÚ</a>
       </div>
     </section>
 
@@ -87,14 +297,12 @@
       </div>
     </section>
 
-    <!-- PLATOS DESTACADOS -->
+    <!-- PLATOS DESTACADOS (IMPERDIBLES) -->
     <section class="featured" id="menu">
       <div class="container">
         <h2 class="section-title">NUESTROS IMPERDIBLES</h2>
         <div class="red-bar"></div>
-
         <div class="cards-grid" id="menuCards">
-          <!-- 👇 CARDS VISIBLES (3 o 6) -->
           <div class="card">
             <div
               class="card-img"
@@ -102,8 +310,8 @@
             ></div>
             <div class="card-content">
               <h3>Aeropuerto Especial</h3>
-              <p>Arroz saltado con chancho, pollo...</p>
-              <span class="price">S/ 34.50</span>
+              <p>Arroz saltado con chancho, pollo y tallarin</p>
+              <span class="price">S/ 25.00</span>
               <button class="btn-card">PEDIR</button>
             </div>
           </div>
@@ -113,9 +321,9 @@
               style="background-image: url(chaufa2.jpg)"
             ></div>
             <div class="card-content">
-              <h3>Aeropuerto Especial</h3>
-              <p>Arroz saltado con chancho, pollo...</p>
-              <span class="price">S/ 34.50</span>
+              <h3>Chaufa Especial</h3>
+              <p>Arroz frito estilo chifa con ingredientes selectos</p>
+              <span class="price">S/ 22.00</span>
               <button class="btn-card">PEDIR</button>
             </div>
           </div>
@@ -125,201 +333,885 @@
               style="background-image: url(chaufa2.jpg)"
             ></div>
             <div class="card-content">
-              <h3>Aeropuerto Especial</h3>
-              <p>Arroz saltado con chancho, pollo...</p>
-              <span class="price">S/ 34.50</span>
+              <h3>Lomo Saltado con Chaufa</h3>
+              <p>El clásico peruano con toque chifa</p>
+              <span class="price">S/ 17.00</span>
               <button class="btn-card">PEDIR</button>
             </div>
           </div>
+          <div class="card hidden">
+            <div
+              class="card-img"
+              style="background-image: url(chaufa2.jpg)"
+            ></div>
+            <div class="card-content">
+              <h3>Pollo con Tamarindo</h3>
+              <p>Plato dulce incluye porción de chaufa</p>
+              <span class="price">S/ 22.00</span>
+              <button class="btn-card">PEDIR</button>
+            </div>
+          </div>
+          <div class="card hidden">
+            <div
+              class="card-img"
+              style="background-image: url(chaufa2.jpg)"
+            ></div>
+            <div class="card-content">
+              <h3>Tallarín Taypa</h3>
+              <p>Combinación especial de tallarines</p>
+              <span class="price">S/ 25.00</span>
+              <button class="btn-card">PEDIR</button>
+            </div>
+          </div>
+          <div class="card hidden">
+            <div
+              class="card-img"
+              style="background-image: url(chaufa2.jpg)"
+            ></div>
+            <div class="card-content">
+              <h3>Sopa Wantan Especial</h3>
+              <p>Sopa de wantanes con ingredientes especiales</p>
+              <span class="price">S/ 18.00</span>
+              <button class="btn-card">PEDIR</button>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px">
+          <button
+            id="verMasBtn"
+            class="btn-cta"
+            onclick="
+              document
+                .getElementById('menu-completo')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            VER CARTA COMPLETA
+          </button>
+        </div>
+      </div>
+    </section>
 
-          <!-- 👇 CARDS OCULTAS -->
-          <div class="card hidden">
-            <div
-              class="card-img"
-              style="background-image: url(chaufa2.jpg)"
-            ></div>
-            <div class="card-content">
-              <h3>Pollo con tamarindo</h3>
-              <p>Delicioso plato agridulce...</p>
-              <span class="price">S/ 22.00</span>
-              <button class="btn-card">PEDIR</button>
-            </div>
-          </div>
-          <div class="card hidden">
-            <div
-              class="card-img"
-              style="background-image: url(chaufa2.jpg)"
-            ></div>
-            <div class="card-content">
-              <h3>Pollo con tamarindo</h3>
-              <p>Delicioso plato agridulce...</p>
-              <span class="price">S/ 22.00</span>
-              <button class="btn-card">PEDIR</button>
-            </div>
-          </div>
-          <div class="card hidden">
-            <div
-              class="card-img"
-              style="background-image: url(chaufa2.jpg)"
-            ></div>
-            <div class="card-content">
-              <h3>Pollo con tamarindo</h3>
-              <p>Delicioso plato agridulce...</p>
-              <span class="price">S/ 22.00</span>
-              <button class="btn-card">PEDIR</button>
-            </div>
-          </div>
-          <div class="card hidden">
-            <div
-              class="card-img"
-              style="background-image: url(chaufa2.jpg)"
-            ></div>
-            <div class="card-content">
-              <h3>Pollo con tamarindo</h3>
-              <p>Delicioso plato agridulce...</p>
-              <span class="price">S/ 22.00</span>
-              <button class="btn-card">PEDIR</button>
-            </div>
-          </div>
-          <div class="card hidden">
-            <div
-              class="card-img"
-              style="background-image: url(chaufa2.jpg)"
-            ></div>
-            <div class="card-content">
-              <h3>Pollo con tamarindo</h3>
-              <p>Delicioso plato agridulce...</p>
-              <span class="price">S/ 22.00</span>
-              <button class="btn-card">PEDIR</button>
-            </div>
-          </div>
-          <div class="card hidden">
-            <div
-              class="card-img"
-              style="background-image: url(chaufa2.jpg)"
-            ></div>
-            <div class="card-content">
-              <h3>Pollo con tamarindo</h3>
-              <p>Delicioso plato agridulce...</p>
-              <span class="price">S/ 22.00</span>
-              <button class="btn-card">PEDIR</button>
-            </div>
-          </div>
-          <div class="card hidden">
-            <div
-              class="card-img"
-              style="background-image: url(chaufa2.jpg)"
-            ></div>
-            <div class="card-content">
-              <h3>Pollo con tamarindo</h3>
-              <p>Delicioso plato agridulce...</p>
-              <span class="price">S/ 22.00</span>
-              <button class="btn-card">PEDIR</button>
-            </div>
-          </div>
-          <div class="card hidden">
-            <div
-              class="card-img"
-              style="background-image: url(chaufa2.jpg)"
-            ></div>
-            <div class="card-content">
-              <h3>Pollo con tamarindo</h3>
-              <p>Delicioso plato agridulce...</p>
-              <span class="price">S/ 22.00</span>
-              <button class="btn-card">PEDIR</button>
-            </div>
-          </div>
-          <div class="card hidden">
-            <div
-              class="card-img"
-              style="background-image: url(chaufa2.jpg)"
-            ></div>
-            <div class="card-content">
-              <h3>Pollo con tamarindo</h3>
-              <p>Delicioso plato agridulce...</p>
-              <span class="price">S/ 22.00</span>
-              <button class="btn-card">PEDIR</button>
-            </div>
-          </div>
-          <div class="card hidden">
-            <div
-              class="card-img"
-              style="background-image: url(chaufa2.jpg)"
-            ></div>
-            <div class="card-content">
-              <h3>Pollo con tamarindo</h3>
-              <p>Delicioso plato agridulce...</p>
-              <span class="price">S/ 22.00</span>
-              <button class="btn-card">PEDIR</button>
-            </div>
-          </div>
-          <div class="card hidden">
-            <div
-              class="card-img"
-              style="background-image: url(chaufa2.jpg)"
-            ></div>
-            <div class="card-content">
-              <h3>Pollo con tamarindo</h3>
-              <p>Delicioso plato agridulce...</p>
-              <span class="price">S/ 22.00</span>
-              <button class="btn-card">PEDIR</button>
-            </div>
-          </div>
-          <div class="card hidden">
-            <div
-              class="card-img"
-              style="background-image: url(chaufa2.jpg)"
-            ></div>
-            <div class="card-content">
-              <h3>Pollo con tamarindo</h3>
-              <p>Delicioso plato agridulce...</p>
-              <span class="price">S/ 22.00</span>
-              <button class="btn-card">PEDIR</button>
-            </div>
-          </div>
-          <div class="card hidden">
-            <div
-              class="card-img"
-              style="background-image: url(chaufa2.jpg)"
-            ></div>
-            <div class="card-content">
-              <h3>Pollo con tamarindo</h3>
-              <p>Delicioso plato agridulce...</p>
-              <span class="price">S/ 22.00</span>
-              <button class="btn-card">PEDIR</button>
-            </div>
-          </div>
-          <div class="card hidden">
-            <div
-              class="card-img"
-              style="background-image: url(chaufa2.jpg)"
-            ></div>
-            <div class="card-content">
-              <h3>Pollo con tamarindo</h3>
-              <p>Delicioso plato agridulce...</p>
-              <span class="price">S/ 22.00</span>
-              <button class="btn-card">PEDIR</button>
-            </div>
-          </div>
-          <div class="card hidden">
-            <div
-              class="card-img"
-              style="background-image: url(chaufa2.jpg)"
-            ></div>
-            <div class="card-content">
-              <h3>Pollo con tamarindo</h3>
-              <p>Delicioso plato agridulce...</p>
-              <span class="price">S/ 22.00</span>
-              <button class="btn-card">PEDIR</button>
-            </div>
-          </div>
-
-          <!-- 🔁 DUPLICA hasta tener 12 -->
+    <!-- ============================================================ -->
+    <!-- CARTA COMPLETA -->
+    <!-- ============================================================ -->
+    <section id="menu-completo" class="menu-section">
+      <div class="container">
+        <div class="menu-page-title">
+          <h2>CARTA COMPLETA</h2>
+          <div class="red-bar"></div>
         </div>
 
-        <!-- BOTÓN -->
-        <div style="text-align: center; margin-top: 40px">
-          <button id="verMasBtn" class="btn-cta">VER CARTA COMPLETA</button>
+        <!-- COMBOS -->
+        <div class="menu-category">
+          <div class="category-banner">
+            <img src="combo.jpg" alt="Combos Kai Chifa" />
+            <span class="category-banner-label"
+              >Incluye sopa de pollo o kión</span
+            >
+          </div>
+          <div class="category-header">COMBOS</div>
+          <p class="category-note">Incluye sopa de pollo o sopa de kión</p>
+          <div class="combos-grid">
+            <div class="combo-card">
+              <div class="combo-num">COMBO 1</div>
+              <div class="combo-desc">
+                Arroz chaufa<br />+ Sopa de pollo o kión
+              </div>
+              <div class="combo-price">S/ 15.00</div>
+            </div>
+            <div class="combo-card">
+              <div class="combo-num">COMBO 2</div>
+              <div class="combo-desc">
+                Lomo saltado c/ arroz blanco<br />+ Sopa de pollo o kión
+              </div>
+              <div class="combo-price">S/ 15.00</div>
+            </div>
+            <div class="combo-card">
+              <div class="combo-num">COMBO 3</div>
+              <div class="combo-desc">
+                Tallarín de pollo<br />+ Sopa de pollo o kión
+              </div>
+              <div class="combo-price">S/ 15.00</div>
+            </div>
+            <div class="combo-card">
+              <div class="combo-num">COMBO 4</div>
+              <div class="combo-desc">
+                Aeropuerto<br />+ Sopa de pollo o kión
+              </div>
+              <div class="combo-price">S/ 15.00</div>
+            </div>
+            <div class="combo-card">
+              <div class="combo-num">COMBO 5</div>
+              <div class="combo-desc">
+                Chaufa con lomo saltado<br />+ Sopa de pollo o kión
+              </div>
+              <div class="combo-price">S/ 18.00</div>
+            </div>
+            <div class="combo-card">
+              <div class="combo-num">COMBO 6</div>
+              <div class="combo-desc">
+                Chaufa con tallarín<br />+ Sopa de pollo o kión
+              </div>
+              <div class="combo-price">S/ 18.00</div>
+            </div>
+            <div class="combo-card">
+              <div class="combo-num">COMBO 7</div>
+              <div class="combo-desc">
+                Chaufa con alitas<br />+ Sopa de pollo o kión
+              </div>
+              <div class="combo-price">S/ 20.00</div>
+            </div>
+            <div class="combo-card">
+              <div class="combo-num">COMBO 8</div>
+              <div class="combo-desc">
+                Pollo con verduras<br />+ Sopa de pollo o kión
+              </div>
+              <div class="combo-price">S/ 20.00</div>
+            </div>
+            <div class="combo-card">
+              <div class="combo-num">COMBO 9</div>
+              <div class="combo-desc">
+                Pollo con tamarindo<br />+ Sopa de pollo o kión
+              </div>
+              <div class="combo-price">S/ 20.00</div>
+            </div>
+            <div class="combo-card">
+              <div class="combo-num">COMBO 10</div>
+              <div class="combo-desc">
+                Pollo con piña<br />+ Sopa de pollo o kión
+              </div>
+              <div class="combo-price">S/ 22.00</div>
+            </div>
+            <div class="combo-card">
+              <div class="combo-num">COMBO 11</div>
+              <div class="combo-desc">
+                Pollo con durazno<br />+ Sopa de pollo o kión
+              </div>
+              <div class="combo-price">S/ 22.00</div>
+            </div>
+            <div class="combo-card">
+              <div class="combo-num">COMBO 12</div>
+              <div class="combo-desc">
+                Pollo en salsa curry<br />+ Sopa de pollo o kión
+              </div>
+              <div class="combo-price">S/ 22.00</div>
+            </div>
+            <div class="combo-card">
+              <div class="combo-num">COMBO 13</div>
+              <div class="combo-desc">
+                Chijaukay<br />+ Sopa de pollo o kión
+              </div>
+              <div class="combo-price">S/ 22.00</div>
+            </div>
+            <div class="combo-card">
+              <div class="combo-num">COMBO 14</div>
+              <div class="combo-desc">Tipakay<br />+ Sopa de pollo o kión</div>
+              <div class="combo-price">S/ 22.00</div>
+            </div>
+            <div class="combo-card">
+              <div class="combo-num">COMBO 15</div>
+              <div class="combo-desc">Limonkay<br />+ Sopa de pollo o kión</div>
+              <div class="combo-price">S/ 23.00</div>
+            </div>
+            <div class="combo-card">
+              <div class="combo-num">COMBO 16</div>
+              <div class="combo-desc">
+                Pollo con frutas<br />+ Sopa de pollo o kión
+              </div>
+              <div class="combo-price">S/ 23.00</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOPAS -->
+        <div class="menu-category">
+          <div class="category-banner">
+            <img src="sopa.jpg" alt="Sopas Kai Chifa" />
+            <span class="category-banner-label"
+              >Caldos y sopas tradicionales</span
+            >
+          </div>
+          <div class="category-header">SOPAS</div>
+          <div class="menu-items-grid">
+            <div class="menu-item">
+              <span class="item-name">Sopa de pollo</span
+              ><span class="item-price">S/ 10.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Sopa de kion</span
+              ><span class="item-price">S/ 11.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Sopa wantan</span
+              ><span class="item-price">S/ 13.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Sustancia de res</span
+              ><span class="item-price">S/ 15.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Sopa fuchifu</span
+              ><span class="item-price">S/ 13.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Sopa pacpoc</span
+              ><span class="item-price">S/ 14.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Sopa womin</span
+              ><span class="item-price">S/ 16.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Sopa de verdura</span
+              ><span class="item-price">S/ 13.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Sopa wantan especial</span
+              ><span class="item-price">S/ 18.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Sopa de huevitos de codorniz</span
+              ><span class="item-price">S/ 16.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ARROZ -->
+        <div class="menu-category">
+          <div class="category-banner">
+            <img src="arroz.jpg" alt="Arroz Chaufa Kai" />
+            <span class="category-banner-label">Chaufas y Aeropuertos</span>
+          </div>
+          <div class="category-header">ARROZ</div>
+          <div class="menu-items-grid">
+            <div class="menu-item">
+              <span class="item-name">Chaufa de pollo</span
+              ><span class="item-price">S/ 11.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Arroz chaufa con alitas brosters</span
+              ><span class="item-price">S/ 17.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Arroz chaufa con chicharrón de pollo</span
+              ><span class="item-price">S/ 20.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Arroz chaufa con alitas picantes</span
+              ><span class="item-price">S/ 20.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chaufa de res</span
+              ><span class="item-price">S/ 14.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chaufa de chancho</span
+              ><span class="item-price">S/ 14.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chaufa mixto (pollo chancho)</span
+              ><span class="item-price">S/ 17.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chaufa mixto (pollo res)</span
+              ><span class="item-price">S/ 17.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chaufa mixto (res chancho)</span
+              ><span class="item-price">S/ 17.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chaufa especial</span
+              ><span class="item-price">S/ 22.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chaufa 3 sabores</span
+              ><span class="item-price">S/ 20.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chaufa salvaje</span
+              ><span class="item-price">S/ 16.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chaufa con langostino</span
+              ><span class="item-price">S/ 18.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chaufa con champiñones</span
+              ><span class="item-price">S/ 15.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Aeropuerto de pollo</span
+              ><span class="item-price">S/ 15.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Aeropuerto especial</span
+              ><span class="item-price">S/ 25.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Aeropuerto de pollo con papas</span
+              ><span class="item-price">S/ 17.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Aeropuerto de res</span
+              ><span class="item-price">S/ 16.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Aeropuerto de chancho</span
+              ><span class="item-price">S/ 16.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TALLARINES -->
+        <div class="menu-category">
+          <div class="category-banner">
+            <img src="tallarin.jpg" alt="Tallarines Kai Chifa" />
+            <span class="category-banner-label">Tallarines y Taypas</span>
+          </div>
+          <div class="category-header">TALLARINES</div>
+          <div class="menu-items-grid">
+            <div class="menu-item">
+              <span class="item-name">Tallarín de pollo</span
+              ><span class="item-price">S/ 15.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Tallarín de res</span
+              ><span class="item-price">S/ 17.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Tallarín de chancho</span
+              ><span class="item-price">S/ 17.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Tallarín de champiñones</span
+              ><span class="item-price">S/ 17.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Tallarines en salsa curry</span
+              ><span class="item-price">S/ 20.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Tallarines taypa</span
+              ><span class="item-price">S/ 25.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Tallarín frito</span
+              ><span class="item-price">S/ 22.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Tallarín en trozos</span
+              ><span class="item-price">S/ 18.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Tallarín de langostino</span
+              ><span class="item-price">S/ 25.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Tallarín especial</span
+              ><span class="item-price">S/ 25.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Taypa a la plancha</span
+              ><span class="item-price">S/ 35.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Taypa especial</span
+              ><span class="item-price">S/ 27.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Arroz chaufa con tallarín de pollo</span
+              ><span class="item-price">S/ 18.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Arroz chaufa con tallarín especial</span
+              ><span class="item-price">S/ 27.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name"
+                >Arroz chaufa con tallarín de champiñones</span
+              ><span class="item-price">S/ 20.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Tallarín de pollo con lomo saltado</span
+              ><span class="item-price">S/ 23.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Aeropuerto con tallarín de pollo</span
+              ><span class="item-price">S/ 22.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- LOMOS -->
+        <div class="menu-category">
+          <div class="category-banner">
+            <img src="lomo2.jpg" alt="Lomo Saltado Kai" />
+            <span class="category-banner-label"
+              >El clásico peruano con toque chifa</span
+            >
+          </div>
+          <div class="category-header">LOMOS</div>
+          <div class="menu-items-grid">
+            <div class="menu-item">
+              <span class="item-name">Lomo saltado con arroz chaufa</span
+              ><span class="item-price">S/ 17.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Lomo saltado con arroz blanco</span
+              ><span class="item-price">S/ 15.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Lomo saltado con tallarín</span
+              ><span class="item-price">S/ 21.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Lomo saltado con aeropuerto</span
+              ><span class="item-price">S/ 20.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Saltado de pollo con arroz chaufa</span
+              ><span class="item-price">S/ 18.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMBINACIONES TRIPLES -->
+        <div class="menu-category">
+          <div class="category-banner">
+            <img src="tallarinchaufa.jpg" alt="Combinaciones Triples Kai" />
+            <span class="category-banner-label">Lo mejor de tres mundos</span>
+          </div>
+          <div class="category-header">COMBINACIONES TRIPLES</div>
+          <div class="menu-items-grid">
+            <div class="menu-item">
+              <span class="item-name"
+                >Arroz chaufa + lomo saltado + tallarín</span
+              ><span class="item-price">S/ 28.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name"
+                >Arroz chaufa + lomo saltado + alitas brosters</span
+              ><span class="item-price">S/ 26.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name"
+                >Arroz chaufa + tallarín + alitas brosters</span
+              ><span class="item-price">S/ 26.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name"
+                >Alitas brosters + pollo con piña + arroz chaufa</span
+              ><span class="item-price">S/ 28.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Aeropuerto + lomo saltado + tallarín</span
+              ><span class="item-price">S/ 28.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name"
+                >Aeropuerto + lomo saltado + alitas brosters</span
+              ><span class="item-price">S/ 28.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name"
+                >Arroz chaufa + chicharrón + pollo al durazno</span
+              ><span class="item-price">S/ 28.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLATOS ESPECIALES DULCES -->
+        <div class="menu-category">
+          <div class="category-banner">
+            <img src="platoEspecialDulce.jpg" alt="Platos Dulces Kai" />
+            <span class="category-banner-label"
+              >Todos incluyen porción de chaufa</span
+            >
+          </div>
+          <div class="category-header">PLATOS ESPECIALES DULCES</div>
+          <p class="category-note">
+            Todos los platos incluyen porción de chaufa
+          </p>
+          <div class="menu-items-grid">
+            <div class="menu-item">
+              <span class="item-name">Pollo con tamarindo</span
+              ><span class="item-price">S/ 22.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Pollo con piña</span
+              ><span class="item-price">S/ 23.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Pollo al durazno</span
+              ><span class="item-price">S/ 23.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Limonkay</span
+              ><span class="item-price">S/ 24.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Tipakay</span
+              ><span class="item-price">S/ 23.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Pollo con fruta</span
+              ><span class="item-price">S/ 24.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Pollo 5 sabores</span
+              ><span class="item-price">S/ 24.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Kamlu wantan</span
+              ><span class="item-price">S/ 25.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Alitas al durazno</span
+              ><span class="item-price">S/ 23.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Alitas con frutas</span
+              ><span class="item-price">S/ 25.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Alitas con tamarindo</span
+              ><span class="item-price">S/ 23.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chancho con tamarindo</span
+              ><span class="item-price">S/ 21.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chancho al durazno</span
+              ><span class="item-price">S/ 22.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chancho con piña</span
+              ><span class="item-price">S/ 22.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chancho con frutas</span
+              ><span class="item-price">S/ 24.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Enrollado al durazno</span
+              ><span class="item-price">S/ 25.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Enrollado con piña</span
+              ><span class="item-price">S/ 25.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Enrollado con frutas</span
+              ><span class="item-price">S/ 26.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Langostino con durazno</span
+              ><span class="item-price">S/ 25.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Langostino con frutas</span
+              ><span class="item-price">S/ 28.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLATOS ESPECIALES SALADOS -->
+        <div class="menu-category">
+          <div class="category-banner">
+            <img src="platosSalado.jpg" alt="Platos Salados Kai" />
+            <span class="category-banner-label"
+              >Todos incluyen porción de chaufa</span
+            >
+          </div>
+          <div class="category-header">PLATOS ESPECIALES SALADOS</div>
+          <p class="category-note">
+            Todos los platos incluyen porción de chaufa
+          </p>
+          <div class="menu-items-grid">
+            <div class="menu-item">
+              <span class="item-name">Chijaukay</span
+              ><span class="item-price">S/ 23.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Pollo en salsa de ostión</span
+              ><span class="item-price">S/ 22.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Pollo al ajo</span
+              ><span class="item-price">S/ 19.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Pollo con verduras</span
+              ><span class="item-price">S/ 23.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Pollo con champiñones</span
+              ><span class="item-price">S/ 19.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Pollo con frejolito chino</span
+              ><span class="item-price">S/ 19.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Pollo con brócoli</span
+              ><span class="item-price">S/ 23.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Pollo en salsa curry</span
+              ><span class="item-price">S/ 22.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Pollo con tausi</span
+              ><span class="item-price">S/ 19.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Alitas con verduras</span
+              ><span class="item-price">S/ 24.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Alitas con champiñones</span
+              ><span class="item-price">S/ 22.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Alitas en salsa curry</span
+              ><span class="item-price">S/ 22.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chancho con verdura</span
+              ><span class="item-price">S/ 20.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chancho con brócoli</span
+              ><span class="item-price">S/ 20.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chancho con tausi</span
+              ><span class="item-price">S/ 20.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chancho con champiñones</span
+              ><span class="item-price">S/ 23.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Chancho en salsa curry</span
+              ><span class="item-price">S/ 22.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Enrollado con verduras</span
+              ><span class="item-price">S/ 25.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Enrollado con champiñones</span
+              ><span class="item-price">S/ 20.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Enrollado con brócoli</span
+              ><span class="item-price">S/ 24.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Langostinos con verduras</span
+              ><span class="item-price">S/ 25.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TORTILLAS + CHAUFA -->
+        <div class="menu-category">
+          <div class="category-banner">
+            <img src="chaufaConTortilla.jpg" alt="Tortillas con Chaufa Kai" />
+            <span class="category-banner-label"
+              >Tortillas doradas con arroz chaufa</span
+            >
+          </div>
+          <div class="category-header">TORTILLAS + CHAUFA</div>
+          <div class="menu-items-grid">
+            <div class="menu-item">
+              <span class="item-name">Tortillas de pollo</span
+              ><span class="item-price">S/ 18.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Tortillas de verdura</span
+              ><span class="item-price">S/ 18.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Tortillas de res</span
+              ><span class="item-price">S/ 20.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Tortillas chancho</span
+              ><span class="item-price">S/ 20.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Tortillas especial</span
+              ><span class="item-price">S/ 25.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Aeropuerto con tortillas de verdura</span
+              ><span class="item-price">S/ 22.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Aeropuerto con tortillas de pollo</span
+              ><span class="item-price">S/ 22.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name"
+                >Aeropuerto con tortillas de pollo y chancho</span
+              ><span class="item-price">S/ 25.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PIQUEOS -->
+        <div class="menu-category">
+          <div class="category-banner">
+            <img src="Piqueos.png" alt="Piqueos Kai Chifa" />
+            <span class="category-banner-label">Para compartir en la mesa</span>
+          </div>
+          <div class="category-header">PIQUEOS</div>
+          <div class="menu-items-grid">
+            <div class="menu-item">
+              <span class="item-name">1 doc wantan</span
+              ><span class="item-price">S/ 14.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">½ doc wantan</span
+              ><span class="item-price">S/ 8.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">1 doc alitas brosters</span
+              ><span class="item-price">S/ 35.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">½ doc alitas brosters</span
+              ><span class="item-price">S/ 18.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">1 doc huevitos de codorniz</span
+              ><span class="item-price">S/ 16.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">½ doc huevitos de codorniz</span
+              ><span class="item-price">S/ 8.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">1 porción de arroz chaufa</span
+              ><span class="item-price">S/ 7.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">1 porción de arroz blanco</span
+              ><span class="item-price">S/ 4.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- REFRESCOS -->
+        <div class="menu-category">
+          <div class="category-banner">
+            <img src="limonada.png" alt="Refrescos Kai Chifa" />
+            <span class="category-banner-label"
+              >Refrescos naturales y bebidas</span
+            >
+          </div>
+          <div class="category-header">REFRESCOS</div>
+          <div class="menu-items-grid">
+            <div class="menu-item">
+              <span class="item-name">1Lt. Carambola</span
+              ><span class="item-price">S/ 12.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">1Lt. Limonada frozen</span
+              ><span class="item-price">S/ 15.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">1Lt. Maracuyá frozen</span
+              ><span class="item-price">S/ 15.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">1Lt. Chicha morada</span
+              ><span class="item-price">S/ 12.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MATES -->
+        <div class="menu-category">
+          <div class="category-header">MATES</div>
+          <div class="menu-items-grid">
+            <div class="menu-item">
+              <span class="item-name">Café</span
+              ><span class="item-price">S/ 4.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Te</span
+              ><span class="item-price">S/ 3.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Anís</span
+              ><span class="item-price">S/ 3.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Manzanilla</span
+              ><span class="item-price">S/ 3.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Te jazmín</span
+              ><span class="item-price">S/ 3.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">1 jarra de mate</span
+              ><span class="item-price">S/ 10.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BEBIDAS -->
+        <div class="menu-category">
+          <div class="category-header">BEBIDAS</div>
+          <div class="menu-items-grid">
+            <div class="menu-item">
+              <span class="item-name">Personal coca/inca 300ml</span
+              ><span class="item-price">S/ 3.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Personal coca/inca 400ml</span
+              ><span class="item-price">S/ 3.50</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Personal fanta 500ml</span
+              ><span class="item-price">S/ 4.50</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Personal inca/coca 600ml</span
+              ><span class="item-price">S/ 4.50</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Gordita inca</span
+              ><span class="item-price">S/ 5.50</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">1 litro de coca/inca</span
+              ><span class="item-price">S/ 9.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">1.5 litro de coca/inca</span
+              ><span class="item-price">S/ 11.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">2.5 litro de coca/inca</span
+              ><span class="item-price">S/ 16.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Agua mineral cielo</span
+              ><span class="item-price">S/ 2.00</span>
+            </div>
+            <div class="menu-item">
+              <span class="item-name">Agua mineral San Luis</span
+              ><span class="item-price">S/ 2.50</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -329,8 +1221,8 @@
       <div class="container">
         <h2>📞 ¿HABLAMOS POR WHATSAPP?</h2>
         <p>
-          Reserva tu mesa, haz pedidos a delivery o consulta promos especiales.
-          <br />
+          Reserva tu mesa, haz pedidos a delivery o consulta promos
+          especiales.<br />
           ¡Estamos a un mensaje de distancia!
         </p>
         <a
